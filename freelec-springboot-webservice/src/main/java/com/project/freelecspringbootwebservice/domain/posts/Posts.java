@@ -1,5 +1,6 @@
 package com.project.freelecspringbootwebservice.domain.posts;
 
+import com.project.freelecspringbootwebservice.domain.BaseTimeEntity;
 import com.project.freelecspringbootwebservice.web.dto.PostsResponseDto;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
