@@ -2,6 +2,7 @@ package com.project.freelecspringbootwebservice.web;
 
 import com.project.freelecspringbootwebservice.service.posts.PostsService;
 import com.project.freelecspringbootwebservice.web.dto.PostSaveRequestDto;
+import com.project.freelecspringbootwebservice.web.dto.PostsResponseDto;
 import com.project.freelecspringbootwebservice.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,12 @@ public class PostsApiController {
     //수정
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
-        return postsService.update(id, requestDto); 
+        return postsService.update(id, requestDto);
+    }
+
+    //조회
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById(@PathVariable Long id){
+        return postsService.findById(id);
     }
 }
